@@ -1,0 +1,14 @@
+# Nothing downloaded, generated or enormous belongs in the repository.
+
+# The pinned QEMU tarball is 135 MB and the guest image another 90 MB, so unlike
+# rtl-sim's 270 KB LitePCIe tarball they are *not* tracked. The pin is the
+# version + sha256 in scripts/fetch-qemu.sh and scripts/fetch-guest.sh, and both
+# scripts re-download on demand.
+cache/
+
+# The hand-driven guest run writes its serial console here.
+guest-serial.log
+
+# Bytecode
+__pycache__/
+*.py[cod]

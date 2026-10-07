@@ -1,0 +1,33 @@
+# Repository root for the begonia-pciesim simulations.
+#
+# Each subdirectory (`rtl-sim/`, `qemu-sim/`) carries its own .gitignore for its
+# own build output and downloads. This file covers only what belongs to the
+# *checkout layout* rather than to either project: the two toolchain directories,
+# which are siblings of the checkouts rather than of the repository.
+
+# The self-contained toolchain that rtl-sim/setup-env.sh and qemu-sim/setup-env.sh
+# build (~3 GB: conda environments, micromamba, package cache). It is deliberately
+# a *sibling* of the checkouts, because that is where each env.sh looks for it by
+# default:
+#
+#     rtl-sim/../.tools      ->  begonia-pciesim/.tools
+#     qemu-sim/../.tools     ->  begonia-pciesim/.tools   (the same root)
+#
+# so it lands inside the repository even though it is not part of it. Rebuild it
+# with `bash rtl-sim/setup-env.sh` or `bash qemu-sim/setup-env.sh`, or point a
+# shared one at it with LITEPCIE_DEMO_TOOLS / QEMU_DEMO_TOOLS.
+.tools/
+
+# The QEMU source + build tree used by qemu-sim (several GB once built), also a
+# sibling of its checkout for the same reason:
+#
+#     qemu-sim/../.qemu  ->  begonia-pciesim/.qemu
+#
+# Recreated by `make -C qemu-sim fetch` and `make -C qemu-sim build`.
+.qemu/
+
+# Editor / OS noise, in case someone works from the repository root.
+.DS_Store
+Thumbs.db
+*~
+*.swp
