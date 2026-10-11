@@ -1,0 +1,9 @@
+# <type>(<scope>): <imperative summary, <= 50 chars, no trailing period>
+#
+# type:  feat | fix | build | docs | refactor | perf | test | chore | ci | style | revert
+# scope: `rtl-sim`, `qemu-sim`, `docs`, `repo`
+#
+# Body (optional): explain WHY, not what the diff already shows.  Wrap at 72.
+# Keep one blank line between the summary, the body and any footer.
+#
+# Footer (optional): BREAKING CHANGE: ..., Closes #12, Refs: ...
